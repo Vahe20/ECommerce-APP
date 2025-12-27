@@ -1,0 +1,16 @@
+[
+  {
+    "id": "6d0eca47-4c9f-42fa-8bcc-878c0a5147a3",
+    "userId": "4e798e55-3884-4346-ae61-408fa621a692",
+    "items": [
+      {
+        "productId": "bab5cb49-1978-46d7-a36b-dc1763883f53",
+        "quantity": 2,
+        "priceAtPurchase": 200
+      }
+    ],
+    "totalAmount": 200,
+    "status": "created",
+    "createdAt": "2025-12-27T09:12:10.470Z"
+  }
+]

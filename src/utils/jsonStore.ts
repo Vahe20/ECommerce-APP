@@ -104,9 +104,6 @@ class JsonStore<T extends { id: string }> {
 		this.writeAll([]);
 	}
 
-	count(): number {
-		return this.readAll().length;
-	}
 
 	exists(id: string): boolean {
 		return this.findById(id) !== null;

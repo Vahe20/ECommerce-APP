@@ -3,7 +3,6 @@ import JsonStore from "../utils/jsonStore";
 import userType from "../types/user.type";
 import bcrypt from "bcryptjs";
 import { randomUUID } from "node:crypto";
-import authMiddleware from "../middleware/auth.middleware";
 import jwt from "jsonwebtoken";
 
 const authRouter = Router();
@@ -12,12 +11,19 @@ const userStore = new JsonStore<userType>("users.json");
 
 authRouter.post("/register", (req: Request, res: Response) => {
 	try {
-		const { email, password } = req.body;
+		const { email, password, role } = req.body;
 
 		if (!email || !password)
 			return res
 				.status(400)
 				.json({ error: "Email and password required" });
+
+
+		if (role) {
+			if (role != "admin" && role != "customer")
+				return res.status(400).json({});
+		}
+
 		if (userStore.findOne((u: userType) => u.email === email))
 			return res.status(400).json({ error: "User already exists" });
 
@@ -27,7 +33,7 @@ authRouter.post("/register", (req: Request, res: Response) => {
 			id: randomUUID(),
 			email,
 			passwordHash,
-			role: "customer",
+			role: role || "customer",
 			createdAt: new Date().toISOString(),
 		});
 
