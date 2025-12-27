@@ -3,7 +3,7 @@ import authMiddleware from "../middleware/auth.middleware";
 import JsonStore from "../utils/jsonStore";
 import productType from "../types/product.type";
 import { orderItemsType, orderType } from "../types/order.type";
-import { UUID, randomUUID } from "crypto";
+import { randomUUID } from "crypto";
 
 const orderRouter = Router();
 
@@ -23,21 +23,18 @@ orderRouter.post("/", (req: Request, res: Response) => {
 
     let totalAmount = 0;
 
-
     for (const item of items) {
         const prod = productStore.findById(item.productId);
         if (prod) {
             if (prod.stock < item.quantity) {
                 return res.status(400).json({});
             }
-            productStore.update(prod.id, {stock: prod.stock - item.quantity})
             totalAmount += item.priceAtPurchase;
         } else {
             return res.status(400).json([]);
         }
     }
 
-    console.log(req.user);
     const newOrder = ordersStore.create({
         id: randomUUID(),
         userId: req.user.userId,
