@@ -3,7 +3,6 @@ import JsonStore from "../utils/jsonStore";
 import userType from "../types/user.type";
 import bcrypt from "bcryptjs";
 import { randomUUID } from "node:crypto";
-import authMiddleware from "../middleware/auth.middleware";
 import jwt from "jsonwebtoken";
 
 const authRouter = Router();
