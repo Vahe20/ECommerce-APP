@@ -19,6 +19,7 @@ class JsonStore<T extends { id: string }> {
 			if (!fs.existsSync(this.filePath)) {
 				fs.writeFileSync(this.filePath, "[]", "utf-8");
 			}
+			
 		} catch (error) {
 			console.error(`Error initializing file ${this.filePath}:`, error);
 			throw new Error("Failed to initialize JSON store");
@@ -104,9 +105,6 @@ class JsonStore<T extends { id: string }> {
 		this.writeAll([]);
 	}
 
-	count(): number {
-		return this.readAll().length;
-	}
 
 	exists(id: string): boolean {
 		return this.findById(id) !== null;

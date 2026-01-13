@@ -1,0 +1,9 @@
+[
+  {
+    "id": "4e798e55-3884-4346-ae61-408fa621a692",
+    "email": "example@gmail.ru",
+    "passwordHash": "$2b$10$GyTtwtEmM62MBtHiIOIAXuqVmO2ZR4bFY/hPFfqc1mbTdhRlXI8xe",
+    "role": "admin",
+    "createdAt": "2025-12-27T07:56:53.098Z"
+  }
+]

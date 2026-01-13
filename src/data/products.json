@@ -1,0 +1,16 @@
+[
+  {
+    "id": "bab5cb49-1978-46d7-a36b-dc1763883f53",
+    "name": "zibil",
+    "price": 40,
+    "stock": 8,
+    "createdAt": "2025-12-27T07:59:17.097Z"
+  },
+  {
+    "id": "f7271361-0d85-47e1-8492-b5ced432c15f",
+    "name": "zibil2",
+    "price": 400,
+    "stock": 0,
+    "createdAt": "2025-12-27T07:59:41.812Z"
+  }
+]
